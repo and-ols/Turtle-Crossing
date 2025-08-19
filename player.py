@@ -35,5 +35,6 @@ class Player(Turtle):
         self.goto(self.xcor(), new_y)
 
     def pos_reset(self):
-        """Resets the turtle to the start"""
-        self.goto(STARTING_POSITION)
+        """Resets the turtle to the start when it hits the top of the screen"""
+        if self.ycor() == FINISH_LINE_Y:
+            self.goto(STARTING_POSITION)
