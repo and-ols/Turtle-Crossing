@@ -1,2 +1,2 @@
 # Turtle Crossing
-A turtle crossing game simmilar to Froger
+A turtle crossing game similar to Froger
