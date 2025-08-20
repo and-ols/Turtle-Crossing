@@ -38,3 +38,4 @@ class Player(Turtle):
         """Resets the turtle to the start when it hits the top of the screen"""
         if self.ycor() == FINISH_LINE_Y:
             self.goto(STARTING_POSITION)
+            return True
