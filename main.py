@@ -33,6 +33,7 @@ screen.onkey(player.move_down, "Down")
 
 # Initializes the counter
 count = 0
+car_amount = 0
 
 game_is_on = True
 while game_is_on:
@@ -45,8 +46,13 @@ while game_is_on:
     # Displays the scoreboard
     scoreboard.display_level()
 
+    if scoreboard.display_level() == 1:
+        car_amount = 5
+    else:
+        car_amount = 10
+
     # if the counter is divisible by 5 (so every 5 seconds) spawn cars
-    if count % 5 == 0:
+    if count % car_amount == 0:
         car.add_car()
 
     # If the player has reached the top of the screen, reset the player to the
