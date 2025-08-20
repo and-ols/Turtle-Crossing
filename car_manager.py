@@ -12,7 +12,6 @@ class CarManager:
 
     Methods:
     - add_car
-    - create_car
     - move_car
     - increase_speed
     """
