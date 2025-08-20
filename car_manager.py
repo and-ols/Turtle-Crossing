@@ -32,11 +32,6 @@ class CarManager:
         new_car.shapesize(stretch_wid=1, stretch_len=2)
         new_car.goto(320, random.randrange(-240, 240 + 1))
         self.cars.append(new_car)
-
-    def create_car(self):
-        """Calls add car to create 5 cars using a for loop"""
-        for car in range(5):
-             self.add_car()
     
     def move_car(self):
         """Moves the car left by the global defined amount"""
