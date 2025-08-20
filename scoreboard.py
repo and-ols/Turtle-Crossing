@@ -25,6 +25,7 @@ class Scoreboard(Turtle):
         """Displays current level in the top left"""
         self.goto(-210, 250)
         self.write(f"Level: {self.level}", move=False, align="center", font=FONT)
+        return self.level
 
     def update_level(self):
         """
