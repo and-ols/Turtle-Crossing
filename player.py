@@ -11,7 +11,7 @@ class Player(Turtle):
     Methods:
     - move_up
     - move_down
-    - pos_reset
+    - reached_top
     """
 
     def __init__(self):
@@ -34,7 +34,7 @@ class Player(Turtle):
         new_y = self.ycor() - MOVE_DISTANCE
         self.goto(self.xcor(), new_y)
 
-    def pos_reset(self):
+    def reached_top(self):
         """Resets the turtle to the start when it hits the top of the screen"""
         if self.ycor() == FINISH_LINE_Y:
             self.goto(STARTING_POSITION)
