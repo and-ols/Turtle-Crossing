@@ -25,35 +25,22 @@ scoreboard = Scoreboard()
 car = CarManager()
 
 
-
 # Detects the arrow keys being pressed
 screen.listen()
 screen.onkey(player.move_up, "Up")
 screen.onkey(player.move_down, "Down")
 
-# Initializes the counter
-count = 0
-car_amount = 0
 
 game_is_on = True
 while game_is_on:
     time.sleep(car.move_speed)
-    # Every second (or more as it increases) the count goes up and 
-    # the screen is updated
-    count += 1
     screen.update()
 
     # Displays the scoreboard
     scoreboard.display_level()
 
-    if scoreboard.display_level() == 1:
-        car_amount = 5
-    else:
-        car_amount = 10
-
-    # if the counter is divisible by 5 (so every 5 seconds) spawn cars
-    if count % car_amount == 0:
-        car.add_car()
+    # Spawns cars
+    car.add_car()
 
     # If the player has reached the top of the screen, reset the player to the
     # bottom and increase the speed
@@ -67,9 +54,13 @@ while game_is_on:
     # Checks each cars distance from the player, if it is within 25px, stop the
     # game loop and display the game over sign
     for vic in car.cars:
-        if player.distance(vic) < 25:
+        if player.distance(vic) < 20:
             game_is_on = False
             scoreboard.game_over()
+
+        if vic.xcor() == -320:
+            car.cars.remove(vic)
+            
 
 
 #Keeps the screen open until the user closes it

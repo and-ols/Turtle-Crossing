@@ -25,18 +25,22 @@ class CarManager:
         Creates a car, gives it a random color, and location and adds it to
         the list of cars
         """
-        new_car = Turtle(shape="square")
-        new_car.penup()
-        new_car.color(random.choice(COLORS))
-        new_car.shapesize(stretch_wid=1, stretch_len=2)
-        new_car.goto(320, random.randrange(-240, 240 + 1))
-        self.cars.append(new_car)
-    
+        # This random number limits the number of cars spawning, so it is not so saturated. 
+        # So rather then spawning in every .1 seconds it now every 1 in 6 of .1 seconds 
+        random_num = random.randint(1, 6)
+        if random_num == 1:
+            new_car = Turtle(shape="square")
+            new_car.penup()
+            new_car.color(random.choice(COLORS))
+            new_car.shapesize(stretch_wid=1, stretch_len=2)
+            new_car.goto(320, random.randrange(-240, 240 + 1))
+            self.cars.append(new_car)
+
     def move_car(self):
         """Moves the car left by the global defined amount"""
-        for car in range(len(self.cars)):
+        for car in self.cars:
             # Move backwards because it starts at positive 300
-            self.cars[car].backward(STARTING_MOVE_DISTANCE)
+            car.backward(STARTING_MOVE_DISTANCE)
 
     def increase_speed(self):
         """Increases the speed of the cars"""
