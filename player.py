@@ -25,17 +25,16 @@ class Player(Turtle):
         self.left(90)
     
     def return_to_start(self):
+        """Moves the turtle back to the start"""
         self.goto(STARTING_POSITION)
 
     def move_up(self):
         """Moves the turtle up by the global defined amount"""
-        new_y = self.ycor() + MOVE_DISTANCE
-        self.goto(self.xcor(), new_y)
+        self.goto(self.xcor(), self.ycor() + MOVE_DISTANCE)
 
     def move_down(self):
         """Moves the turtle down by the global defined amount"""
-        new_y = self.ycor() - MOVE_DISTANCE
-        self.goto(self.xcor(), new_y)
+        self.goto(self.xcor(), self.ycor() - MOVE_DISTANCE)
 
     def reached_top(self):
         """Resets the turtle to the start when it hits the top of the screen"""
